@@ -25,3 +25,38 @@ def delete_zip_files(path_zip):
         print('[Error] An error occurred while trying to delete the zipped files.')
         print(err)
 
+
+def check_status_download(path_log, request_data):
+    """Check if the xml has already been downloaded"""
+    check = [request_data]
+    check_result = []
+
+    with open(path_log, 'r') as f:
+        f = f.readlines()
+
+    for line in f:
+        for word in check:
+            if word in line:
+                line = line.replace('\n', '')
+                check_result.append(line)
+
+    if len(check_result) == 1:
+        # In the first request, the file already existed
+        status_download = check_result[0].split('INFO')[1].lstrip()
+        if status_download == 'Download success':
+            return True
+        else:
+            return False
+    elif len(check_result) > 1:
+        # The file didn't exist in the first request so the check_result list has more than one object
+        # so I get the status of the last object
+        status_download = check_result[-1].split('INFO')[1].lstrip()
+        if status_download == 'Download success':
+            return True
+        else:
+            return False
+    else:
+        return False
+
+
+

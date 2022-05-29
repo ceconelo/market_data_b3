@@ -1,5 +1,7 @@
 import requests
 import zipfile
+import logging
+
 from io import BytesIO
 
 from utils import delete_zip_files, unzip_file
@@ -15,8 +17,10 @@ from utils import delete_zip_files, unzip_file
 
 
 class RequestB3:
+
     def __init__(self, request_data):
         self._request_data = request_data
+
         self._url_base = 'https://www.b3.com.br/pt_br/market-data-e-indices/servicos-de-dados/market-data/historico' \
                          '/boletins-diarios/pesquisa-por-pregao/pesquisa-por-pregao/ '
         self._url_download_zip = f'https://www.b3.com.br/pesquisapregao/download?filelist=SPRE{self._request_data}.zip'
@@ -37,12 +41,15 @@ class RequestB3:
                     print('[Info] Downloading file.')
                     file = zipfile.ZipFile(BytesIO(response.content))
                     file.extractall(self._path_file)
+                    logging.info('Download success')
                 except BaseException as err:
                     print('[Error] Unable to download and save file.')
+                    logging.info('Download failed')
                     print(err)
                     exit(1)
             else:
                 print(f'[Info] No files were found for that date: {self._request_data}')
+                logging.info('Download failed')
                 exit(1)
 
         else:
