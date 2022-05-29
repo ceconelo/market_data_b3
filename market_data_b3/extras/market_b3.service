@@ -1,0 +1,11 @@
+[Unit]
+Description=market_b3
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/drakon/Documents/PROJETOS/market_data_b3/.venv/bin/python /home/drakon/Documents/PROJETOS/market_data_b3/market_data_b3/main.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=market_b3
+
+[Timer]
+OnCalendar=Mon..Fri 18..23:0/15:00
+OnStartupSec=2m
+RandomizedDelaySec=2m
+Persistent=true
+
+[Install]
+WantedBy=timers.target
