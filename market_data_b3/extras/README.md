@@ -2,6 +2,13 @@
 
 If you wanted to create a service (Linux only) do the following:
 
+### To do
+In the market_b3.service fill:
+```bash
+  ExecStart= <>
+  (E.g /home/drakon/Documents/PROJETOS/market_data_b3/.venv/bin/python /home/drakon/Documents/PROJETOS/market_data_b3/market_data_b3/main.py)
+```
+
 ### 1. Copy files to folder below
 
 ```bash
