@@ -1,6 +1,7 @@
 import requests
 import zipfile
 import logging
+import os, sys
 
 from io import BytesIO
 
@@ -46,11 +47,11 @@ class RequestB3:
                     print('[Error] Unable to download and save file.')
                     logging.info('Download failed')
                     print(err)
-                    exit(1)
+                    sys.exit(os.EX_OSFILE)
             else:
                 print(f'[Info] No files were found for that date: {self._request_data}')
                 logging.info('Download failed')
-                exit(1)
+                sys.exit(os.EX_OK)
 
         else:
             print('Error:')

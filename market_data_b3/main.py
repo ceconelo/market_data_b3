@@ -3,7 +3,7 @@ from utils import check_status_download
 from datetime import datetime
 
 import logging
-PATH_LOG = 'output/download.log'
+PATH_LOG = '/home/drakon/Documents/PROJETOS/market_data_b3/market_data_b3/output/download.log'
 
 logging.basicConfig(
     filename=PATH_LOG,
