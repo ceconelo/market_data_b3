@@ -26,7 +26,7 @@ class RequestB3:
                          '/boletins-diarios/pesquisa-por-pregao/pesquisa-por-pregao/ '
         self._url_download_zip = f'https://www.b3.com.br/pesquisapregao/download?filelist=SPRE{self._request_data}.zip'
 
-        self._path_file = f'output/'
+        self._path_file = os.path.abspath(os.path.join(os.path.dirname(__file__), 'output'))
         self._zipfile_name = self._url_download_zip.split('=')[1]
 
         self.web = requests.session()

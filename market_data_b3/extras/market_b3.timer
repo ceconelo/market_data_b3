@@ -2,7 +2,10 @@
 Description=market_b3
 
 [Timer]
-OnCalendar=Mon..Fri 18..23:0/15:00
+#OnCalendar=Mon..Fri 18..23:0/15:00
+OnCalendar=Mon..Fri 21:00..59:00
+OnCalendar=Mon..Fri 22..23:0/15:00
+OnCalendar=Mon..Fri 00..02:0/15:00
 OnStartupSec=2m
 RandomizedDelaySec=2m
 Persistent=true

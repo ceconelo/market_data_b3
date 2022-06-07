@@ -7,7 +7,7 @@ def unzip_file(path_zip, zip_name):
     """unzip files and delete original zip files"""
     try:
         print('[Info] Extracting files')
-        with zipfile.ZipFile(path_zip + zip_name, "r") as zip_ref:
+        with zipfile.ZipFile(path_zip + f'/{zip_name}', "r") as zip_ref:
             zip_ref.extractall(path_zip)
     except BaseException as err:
         print('[Error] An error occurred while trying to extract the file.')
